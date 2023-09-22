@@ -1,0 +1,42 @@
+in MainActivity, we're using postContainer
+this way, we can create a TextView from the backend in MainActivty, allowing us to use
+operations and loops which is very helpful
+
+Since ApiService returns .toString(), we are returning JSON response data as a plain text
+string, aka raw JSON format but in string of characters
+We need to proccess this in MainActivity, thats why we parse as JSONArray, then JSONObject
+Essentially we use JSONObject to extract the metadata, and JSONArray to loop through the array of JSON items
+This is because many JSON APIs uses a mix of both [] and {}
+
+JSONArray:
+[
+    {
+        "name": "Alice",
+        "age": 30
+    },
+    {
+        "name": "Bob",
+        "age": 25
+    }
+]
+
+
+JSONObject:
+{
+    "name": "Alice",
+    "age": 30
+}
+
+In this case, jsonplaceholder/posts uses mix of both:
+[
+    {
+        "userId": 1,
+        "id": 1,
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    },
+    ...
+
+Thats why we use both Array and object
+
+more or less like that?
